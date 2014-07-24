@@ -35,7 +35,17 @@
 #
 # Copyright 2014 Your name here, unless otherwise noted.
 #
-class ntp {
-
-
+class ntp (
+  $servers = 'pool.ntp.org'
+  ) {
+  if $::osfamily == 'Windows' {
+    class { 'winntp':
+      servers => $servers,
+      }
+    }
+  else {
+    class { 'ntp':
+      servers => $servers,
+    }
+  }
 }
