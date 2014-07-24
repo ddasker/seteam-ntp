@@ -1,0 +1,17 @@
+{
+  "name": "seteam-ntp",
+  "version": "0.1.0",
+  "author": "Dale",
+  "summary": "Combining multiple OS NTP Modules",
+  "license": "Apache 2.0",
+  "source": "https://github.com/ddasker/seteam-ntp.git",
+  "project_page": "https://github.com/ddasker/seteam-ntp",
+  "issues_url": "https://github.com/ddasker/seteam-ntp/issues",
+  "dependencies": [
+    {
+      "name": "puppetlabs-stdlib",
+      "version_range": ">= 1.0.0"
+    }
+  ]
+}
+
