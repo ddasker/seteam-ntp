@@ -38,14 +38,12 @@
 class ntp (
   $servers = 'pool.ntp.org'
   ) {
-  if $::osfamily == 'Windows' {
-    class { 'winntp':
-      servers => $servers,
-      }
-    }
-  else {
-    class { 'ntp':
-      servers => $servers,
-    }
+  
+  case $::osfamily {
+    'RedHat': { class {'ntp': servers => $servers } }
+    'Debian': { class {'ntp': servers => $servers } }
+    'Windows': { class {'winntp': servers => $servers } }
+    default: { notify { "Class[seteamntp] does not support $::osfamily": } }
+
   }
 }
