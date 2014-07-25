@@ -35,15 +35,15 @@
 #
 # Copyright 2014 Your name here, unless otherwise noted.
 #
-class ntp (
+class seteamntp (
   $servers = 'pool.ntp.org'
   ) {
-  
+
   case $::osfamily {
     'RedHat': { class {'ntp': servers => $servers } }
     'Debian': { class {'ntp': servers => $servers } }
     'Windows': { class {'winntp': servers => $servers } }
-    default: { notify { "Class[seteamntp] does not support $::osfamily": } }
+    default: { notify { "Class[seteamntp] does not support ${::osfamily}": } }
 
   }
 }
